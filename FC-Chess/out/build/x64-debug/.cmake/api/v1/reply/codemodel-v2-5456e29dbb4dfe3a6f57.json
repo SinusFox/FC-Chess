@@ -55,7 +55,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "FC-Chess::@314738accb03fcc8cafb",
-					"jsonFile" : "target-FC-Chess-Debug-435428c7450c87e145c9.json",
+					"jsonFile" : "target-FC-Chess-Debug-2c684a82381827f8011e.json",
 					"name" : "FC-Chess",
 					"projectIndex" : 0
 				}
@@ -65,8 +65,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/build/x64-debug",
-		"source" : "D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess"
+		"build" : "D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug",
+		"source" : "D:/Files/Documents/GitHub/FC-Chess/FC-Chess"
 	},
 	"version" : 
 	{

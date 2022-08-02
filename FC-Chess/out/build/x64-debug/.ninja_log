@@ -1,3 +1,4 @@
 # ninja log v5
-0	1003	6808136534775484	FC-Chess/CMakeFiles/FC-Chess.dir/FC-Chess.cpp.obj	e5d541cda6d12ae3
-1004	1473	6808136539150791	FC-Chess/FC-Chess.exe	3ef801800309ef65
+0	491	6811741436989060	FC-Chess/CMakeFiles/FC-Chess.dir/main.cpp.obj	79ac24bf236c1df0
+2	496	6811741437029065	FC-Chess/CMakeFiles/FC-Chess.dir/fc-chess.cpp.obj	90b915f85686613b
+496	941	6811741441030672	FC-Chess/FC-Chess.exe	e6f1f1d5afad7a00

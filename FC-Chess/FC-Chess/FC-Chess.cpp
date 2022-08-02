@@ -1,12 +1,6 @@
-﻿// FC-Chess.cpp : Defines the entry point for the application.
-//
+#include "fc-chess.h"
 
-#include "FC-Chess.h"
-
-using namespace std;
-
-int main()
+void FCC::Game::mainLoop()
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+    std::cout << "test" << std::endl;
 }

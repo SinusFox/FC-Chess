@@ -62,7 +62,8 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -99,13 +100,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
-			]
-		},
-		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
+				0,
 				1
 			]
 		}
@@ -115,13 +110,14 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "FC-Chess/FC-Chess.cpp",
+			"path" : "FC-Chess/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "FC-Chess/FC-Chess.h",
-			"sourceGroupIndex" : 1
+			"compileGroupIndex" : 0,
+			"path" : "FC-Chess/fc-chess.cpp",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"
