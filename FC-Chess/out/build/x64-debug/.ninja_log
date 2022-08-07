@@ -1,4 +1,9 @@
 # ninja log v5
-0	491	6811741436989060	FC-Chess/CMakeFiles/FC-Chess.dir/main.cpp.obj	79ac24bf236c1df0
-2	496	6811741437029065	FC-Chess/CMakeFiles/FC-Chess.dir/fc-chess.cpp.obj	90b915f85686613b
-496	941	6811741441030672	FC-Chess/FC-Chess.exe	e6f1f1d5afad7a00
+1	1125	6815911745643934	FC-Chess/CMakeFiles/FC-Chess.dir/main.cpp.obj	42093eb89a1b523b
+7	1128	6815911745643934	FC-Chess/CMakeFiles/FC-Chess.dir/FC-Chess.cpp.obj	6426bc77d1582334
+13	1131	6815911745716140	FC-Chess/CMakeFiles/FC-Chess.dir/graphics.cpp.obj	1f81da9c8896838a
+1132	1473	6815911749026323	FC-Chess/FC-Chess.exe	eb95614c7078b318
+1	737	6815913934815994	FC-Chess/CMakeFiles/FC-Chess.dir/graphics.cpp.obj	1f81da9c8896838a
+739	946	6815913936547088	FC-Chess/FC-Chess.exe	eb95614c7078b318
+1	713	6815914578393460	FC-Chess/CMakeFiles/FC-Chess.dir/graphics.cpp.obj	1f81da9c8896838a
+713	890	6815914579808087	FC-Chess/FC-Chess.exe	eb95614c7078b318

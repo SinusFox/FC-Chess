@@ -39,7 +39,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "d:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug"
+			"value" : "c:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -515,7 +515,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/Files/Documents/GitHub/FC-Chess/FC-Chess"
+			"value" : "C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -527,7 +527,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/install/x64-debug"
+			"value" : "C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/install/x64-debug"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -1063,7 +1063,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug"
+			"value" : "C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug"
 		},
 		{
 			"name" : "FC-Chess_IS_TOP_LEVEL",
@@ -1087,7 +1087,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/Files/Documents/GitHub/FC-Chess/FC-Chess"
+			"value" : "C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess"
 		}
 	],
 	"kind" : "cache",

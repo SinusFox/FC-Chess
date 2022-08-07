@@ -3,11 +3,15 @@
 
 #include "fc-chess.h"
 
-using namespace std;
+//using namespace std;
 
 int main()
 {
-	FCC::Game gm;
+	FCC::Chess gm;
 	gm.mainLoop();
+
+	FCC::ChessTUI test;
+	test.testLoop();
+
 	return 0;
 }

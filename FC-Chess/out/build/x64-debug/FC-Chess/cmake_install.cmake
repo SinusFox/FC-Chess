@@ -1,8 +1,8 @@
-# Install script for directory: D:/Files/Documents/GitHub/FC-Chess/FC-Chess/FC-Chess
+# Install script for directory: C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/FC-Chess
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/install/x64-debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/install/x64-debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
