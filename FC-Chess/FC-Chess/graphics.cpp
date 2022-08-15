@@ -5,5 +5,7 @@ void FCC::ChessTUI::mainLoop() {
 }
 
 void FCC::ChessTUI::testLoop() {
-    std::cout << u8"\u2654";
+    std::cout << "\u2654" << std::endl;
+    std::cout << "♔" << std::endl;
+    //std::cout << L"♔";
 }
