@@ -1,9 +1,14 @@
 # ninja log v5
-1	1186	6815924644334413	FC-Chess/CMakeFiles/FC-Chess.dir/main.cpp.obj	e53565259ec398cd
-7	1207	6815924644488854	FC-Chess/CMakeFiles/FC-Chess.dir/FC-Chess.cpp.obj	8adf4339babcbb44
-0	1174	6815928745696845	FC-Chess/CMakeFiles/FC-Chess.dir/graphics.cpp.obj	ee72a702f94fda0a
-1175	1430	6815928747672453	FC-Chess/FC-Chess.exe	714ee36c0669199f
-4	1469	6815949326838268	FC-Chess/CMakeFiles/FC-Chess.dir/FC-Chess.cpp.obj	6426bc77d1582334
-0	1471	6815949326858135	FC-Chess/CMakeFiles/FC-Chess.dir/main.cpp.obj	42093eb89a1b523b
-7	1472	6815949326869366	FC-Chess/CMakeFiles/FC-Chess.dir/graphics.cpp.obj	1f81da9c8896838a
-1472	1681	6815949328646463	FC-Chess/FC-Chess.exe	eb95614c7078b318
+<<<<<<< Updated upstream
+0	1003	6808136534775484	FC-Chess/CMakeFiles/FC-Chess.dir/FC-Chess.cpp.obj	e5d541cda6d12ae3
+1004	1473	6808136539150791	FC-Chess/FC-Chess.exe	3ef801800309ef65
+=======
+1	1125	6815911745643934	FC-Chess/CMakeFiles/FC-Chess.dir/main.cpp.obj	42093eb89a1b523b
+7	1128	6815911745643934	FC-Chess/CMakeFiles/FC-Chess.dir/FC-Chess.cpp.obj	6426bc77d1582334
+1	713	6815914578393460	FC-Chess/CMakeFiles/FC-Chess.dir/graphics.cpp.obj	1f81da9c8896838a
+713	890	6815914579808087	FC-Chess/FC-Chess.exe	eb95614c7078b318
+4	707	6816007890054819	FC-Chess/CMakeFiles/FC-Chess.dir/FC-Chess.cpp.obj	b5e5a658f303831a
+0	707	6816007890044814	FC-Chess/CMakeFiles/FC-Chess.dir/main.cpp.obj	e5c0a756eafb3e8c
+8	709	6816007890084815	FC-Chess/CMakeFiles/FC-Chess.dir/graphics.cpp.obj	4b732f066b4f5015
+710	1526	6816007896652273	FC-Chess/FC-Chess.exe	ecfb40c9b9b2323c
+>>>>>>> Stashed changes

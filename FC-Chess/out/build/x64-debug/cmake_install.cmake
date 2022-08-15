@@ -1,8 +1,16 @@
-# Install script for directory: C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess
+<<<<<<< Updated upstream
+# Install script for directory: D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/install/x64-debug")
+  set(CMAKE_INSTALL_PREFIX "D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/install/x64-debug")
+=======
+# Install script for directory: D:/Files/Documents/GitHub/FC-Chess/FC-Chess
+
+# Set the install prefix
+if(NOT DEFINED CMAKE_INSTALL_PREFIX)
+  set(CMAKE_INSTALL_PREFIX "D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/install/x64-debug")
+>>>>>>> Stashed changes
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,7 +42,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/cmake_install.cmake")
+<<<<<<< Updated upstream
+  include("D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/cmake_install.cmake")
+=======
+  include("D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/cmake_install.cmake")
+>>>>>>> Stashed changes
 
 endif()
 
@@ -46,5 +58,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/${CMAKE_INSTALL_MANIFEST}"
+<<<<<<< Updated upstream
+file(WRITE "D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/build/x64-debug/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> Stashed changes
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

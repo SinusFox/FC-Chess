@@ -1,5 +1,13 @@
-C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/CMakeFiles/edit_cache.dir
-C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/FC-Chess.dir
-C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/edit_cache.dir
-C:/Users/user/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/rebuild_cache.dir
+<<<<<<< Updated upstream
+D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/build/x64-debug/CMakeFiles/edit_cache.dir
+D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/FC-Chess.dir
+D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/edit_cache.dir
+D:/Dateien/Dokumente/Github/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/rebuild_cache.dir
+=======
+D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/CMakeFiles/edit_cache.dir
+D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/FC-Chess.dir
+D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/edit_cache.dir
+D:/Files/Documents/GitHub/FC-Chess/FC-Chess/out/build/x64-debug/FC-Chess/CMakeFiles/rebuild_cache.dir
+>>>>>>> Stashed changes
