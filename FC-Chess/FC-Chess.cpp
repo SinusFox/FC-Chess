@@ -11,14 +11,13 @@ FCC::Chess::Chess()
 void FCC::Chess::mainLoop()
 {
     // initialize user interface
-    
-    // tui.startup();
+    tui.startup();
 
     // main loop
     while(!gameEnded)
     {
         /*MISSING: user input*/
-        // tui.mainLoop();
+        tui.mainLoop();
     }
 }
 
