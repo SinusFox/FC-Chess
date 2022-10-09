@@ -1,9 +1,29 @@
-#include "fc-chess.h"
+#include "FC-Chess.h"
+
+FCC::Chess::Chess()
+{
+
+    //start game
+    FCC::Chess::startup();
+    FCC::Chess::mainLoop();
+}
 
 void FCC::Chess::mainLoop()
 {
-    FCC::ChessTUI tui;
+    // initialize user interface
+    
+    // tui.startup();
 
+    // main loop
+    while(!gameEnded)
+    {
+        /*MISSING: user input*/
+        // tui.mainLoop();
+    }
+}
+
+void FCC::Chess::startup()
+{
     // preparing board: colors
     for (int8_t i = 0; i < 8; i++) {
         for (int j = 0; i < 2; i++) {
@@ -32,11 +52,40 @@ void FCC::Chess::mainLoop()
         posPieces[i][4] = (uint8_t)(Pieces::QUEEN);
     }
 
-    // main loop
-    while(!gameEnded) {
-
-        tui.mainLoop();
-    }
-    
-    
+    // set language to English (default)
+    // m_lang = FCC::Languages::ENGLISH;
 }
+
+bool FCC::Chess::checkIsEnemyOnField()
+{
+    // Check if the selected piece/field unequals the target piece/field => is true then
+    if (posColor[selX][selY] != posColor[tarX][tarY])
+    {
+        return true;
+    }
+    return false;
+}
+
+bool FCC::Chess::checkSelectedPosInBounds()
+{
+    // check if X and Y values are below 8. No negative values have to be checked since the var type is unsigned int
+    if (selX <= 7 && selX <= 7)
+    {
+        return true;
+    }
+    return false;
+}
+
+bool FCC::Chess::checkTargetPosInBounds()
+{
+    // check if X and Y values are below 8. No negative values have to be checked since the var type is unsigned int
+    if (tarX <= 7 && tarX <= 7)
+    {
+        return true;
+    }
+    return false;
+}
+
+//void FCC::Chess::set_lang(FCC::Languages lang) {
+//    m_lang = lang;
+//}

@@ -1,17 +1,17 @@
 ﻿// FC-Chess.cpp : Defines the entry point for the application.
 //
 
-#include "fc-chess.h"
+#include "FC-Chess.h"
 
 //using namespace std;
 
 int main()
 {
 	FCC::Chess gm;
-	gm.mainLoop();
+	
 
-	FCC::ChessTUI test;
-	test.testLoop();
+	// FCC::TUI test;
+	// test.testLoop();
 
 	return 0;
 }
