@@ -37,6 +37,7 @@ namespace FCC
             void startup();
             void mainLoop();
             void testLoop();
+            void errOutput(std::string* errMessage);
     };
     
     class Chess
@@ -47,15 +48,18 @@ namespace FCC
             virtual ~Chess() = default;
 
             // vars
-            uint8_t posPieces[8][8], posColor[8][8], posPossible[8][8], selX, selY, tarX, tarY;     //tar = target, sel = selected, pos = possible
+            FCC::Pieces posPieces[8][8];
+            FCC::PiecesColors posColor[8][8];
+            bool posPossible[8][8];
+            uint8_t selX, selY, tarX, tarY;     //tar = target, sel = selected, pos = possible
             
             // funcs
             void mainMenu();
             void startupGame();
             void gameLoop();
-            void checkHorizontalMovementAllowed();
-            void checkVerticalMovementAllowed();
-            void checkDiagonalMovementAllowed();
+            // void checkHorizontalMovementAllowed();
+            // void checkVerticalMovementAllowed();
+            // void checkDiagonalMovementAllowed();
             //void set_lang(FCC::Languages lang);
             
         private:
@@ -70,9 +74,17 @@ namespace FCC
 
             // funcs
             void input();
-            bool checkIsEnemyOnField();
-            bool checkSelectedPosInBounds();
-            bool checkTargetPosInBounds();
+            bool checkIsEnemyOnField(uint8_t* x, uint8_t* y);
+            bool checkPosInBounds(uint8_t* x, uint8_t* y);
+            void checkAllowedMoves();
+            void checkMovesHorizontal();
+            void checkMovesVertical();
+            void checkMovesDiagonal();
+            void checkMovesKnight();
+            void checkMovesKing();
+            void checkMovesPawn();
+            void checkPosEqualsSelPos(uint8_t* x, uint8_t* y);
             void resetFieldColors();
+            void resetAllowedMovement();
     };
 }

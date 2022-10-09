@@ -17,3 +17,8 @@ void FCC::TUI::testLoop()
     std::cout << "♔" << std::endl;
     //std::cout << L"♔";
 }
+
+void FCC::TUI::errOutput(std::string* errMessage)
+{
+    std::cout << *errMessage;
+}
