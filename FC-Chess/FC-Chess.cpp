@@ -2,26 +2,34 @@
 
 FCC::Chess::Chess()
 {
-
-    //start game
-    FCC::Chess::startup();
-    FCC::Chess::mainLoop();
-}
-
-void FCC::Chess::mainLoop()
-{
     // initialize user interface
     tui.startup();
+
+    //start game
+    FCC::Chess::mainMenu();
+}
+
+void FCC::Chess::mainMenu()
+{
+    /* TO DO
+    - Add options
+    - call FCC::Chess::GameLoop when game begins */
+}
+
+void FCC::Chess::gameLoop()
+{
+    // initialize board
+    FCC::Chess::startupGame();
 
     // main loop
     while(!gameEnded)
     {
-        /*MISSING: user input*/
+        /* To Do: user input */
         tui.mainLoop();
     }
 }
 
-void FCC::Chess::startup()
+void FCC::Chess::startupGame()
 {
     // preparing board: colors
     for (int8_t i = 0; i < 8; i++) {
@@ -50,9 +58,6 @@ void FCC::Chess::startup()
         posPieces[i][3] = (uint8_t)(Pieces::KING);
         posPieces[i][4] = (uint8_t)(Pieces::QUEEN);
     }
-
-    // set language to English (default)
-    // m_lang = FCC::Languages::ENGLISH;
 }
 
 bool FCC::Chess::checkIsEnemyOnField()

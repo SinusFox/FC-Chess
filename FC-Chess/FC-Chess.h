@@ -50,8 +50,9 @@ namespace FCC
             uint8_t posPieces[8][8], posColor[8][8], posPossible[8][8], selX, selY, tarX, tarY;     //tar = target, sel = selected, pos = possible
             
             // funcs
-            void startup();
-            void mainLoop();
+            void mainMenu();
+            void startupGame();
+            void gameLoop();
             void checkHorizontalMovementAllowed();
             void checkVerticalMovementAllowed();
             void checkDiagonalMovementAllowed();
