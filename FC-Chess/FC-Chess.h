@@ -1,7 +1,7 @@
 #pragma once
-#include <iostream>
-
-#include "graphics.h"
+//#include <iostream>
+// #include "tui.h"
+#include "lang.h"
 
 namespace FCC
 {
@@ -20,21 +20,71 @@ namespace FCC
         BLACK = 10,
         WHITE = 20
     };
-    
+
     // classes and funcs
+    class TUI
+    {
+        /* Why is FCC::TUI here and not in tui.h, so another file? Well, that's quite easy. MSVC doesn't know how to access code from other files, apparently.
+        Error code is that class FCC::TUI wouldn't be a member of namespace FCC - which is a wrong statement. It is a member of FCC. 
+        So yeah, thanks Microsoft.*/
+
+        public:
+            // constructor and destructor
+            TUI() = default;
+            virtual ~TUI() = default;
+
+            // funcs
+            void startup();
+            void mainLoop();
+            void testLoop();
+            void errOutput(std::string* errMessage);
+    };
+    
     class Chess
     {
         public:
             // constructor and destructor
-            Chess() = default;
-            ~Chess() = default;
+            Chess();
+            virtual ~Chess() = default;
 
             // vars
-            uint8_t posPieces[8][8], posColor[8][8], posPossible[8][8];
+            FCC::Pieces posPieces[8][8];
+            FCC::PiecesColors posColor[8][8];
+            bool posPossible[8][8];
+            uint8_t selX, selY, tarX, tarY;     //tar = target, sel = selected, pos = possible
             
             // funcs
-            void mainLoop();
+            void mainMenu();
+            void startupGame();
+            void gameLoop();
+            // void checkHorizontalMovementAllowed();
+            // void checkVerticalMovementAllowed();
+            // void checkDiagonalMovementAllowed();
+            //void set_lang(FCC::Languages lang);
+            
         private:
+            // vars
             bool gameEnded;
+
+            // texts for tui and gui
+            FCC::Lang lang;
+            FCC::TUI tui;
+            //FCC::ChessLang chessLangObj;
+            //FCC::Languages m_lang{ FCC::Languages::ENGLISH };
+
+            // funcs
+            void input();
+            bool checkIsEnemyOnField(uint8_t* x, uint8_t* y);
+            bool checkPosInBounds(uint8_t* x, uint8_t* y);
+            void checkAllowedMoves();
+            void checkMovesHorizontal();
+            void checkMovesVertical();
+            void checkMovesDiagonal();
+            void checkMovesKnight();
+            void checkMovesKing();
+            void checkMovesPawn();
+            void checkPosEqualsSelPos(uint8_t* x, uint8_t* y);
+            void resetFieldColors();
+            void resetAllowedMovement();
     };
 }
