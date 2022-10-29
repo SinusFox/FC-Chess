@@ -177,63 +177,45 @@ void FCC::Chess::checkMovesDiagonal()
 
 void FCC::Chess::checkMovesKnight()
 {
-    // creating variables for x and y
-    uint8_t i = selX, j = selY;
-
     // checking possible moves
-    i += 1, j += 3;
-    if (checkIsPosInBounds(i, j)) 
+    if (checkIsPosInBounds(selX + 1, selY + 3)) 
     {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+        if (!checkIsFriendlyOnField(selX + 1, selY + 3)) posPossible[selX + 1][selY + 3] = true;
     }
 
-    i = selX, j = selY;     // resetting variables
-    i += 1, j -= 3;
-    if (checkIsPosInBounds(i, j)) 
+    if (checkIsPosInBounds(selX + 1, selY - 3)) 
     {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+        if (!checkIsFriendlyOnField(selX + 1, selY - 3)) posPossible[selX + 1][selY - 3] = true;
+    }
+
+    if (checkIsPosInBounds(selX - 1, selY + 3)) 
+    {
+        if (!checkIsFriendlyOnField(selX - 1, selY + 3)) posPossible[selX - 1][selY + 3] = true;
     }
     
-    i = selX, j = selY;     // resetting variables
-    i -= 1, j += 3;
-    if (checkIsPosInBounds(i, j)) 
+    if (checkIsPosInBounds(selX - 1, selY - 3)) 
     {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+        if (!checkIsFriendlyOnField(selX - 1, selY - 3)) posPossible[selX - 1][selY - 3] = true;
     }
 
-    i = selX, j = selY;     // resetting variables
-    i -= 1, j -= 3;
-    if (checkIsPosInBounds(i, j)) 
+    if (checkIsPosInBounds(selX + 3, selY + 1)) 
     {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+        if (!checkIsFriendlyOnField(selX + 3, selY + 1)) posPossible[selX + 3][selY + 1] = true;
     }
 
-    i = selX, j = selY;     // resetting variables
-    i += 3, j += 1;
-    if (checkIsPosInBounds(i, j)) 
+    if (checkIsPosInBounds(selX + 3, selY - 1)) 
     {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+        if (!checkIsFriendlyOnField(selX + 3, selY - 1)) posPossible[selX + 3][selY - 1] = true;
     }
-
-    i = selX, j = selY;     // resetting variables
-    i += 3, j -= 1;
-    if (checkIsPosInBounds(i, j)) 
+    
+    if (checkIsPosInBounds(selX - 3, selY + 1)) 
     {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+        if (!checkIsFriendlyOnField(selX - 3, selY + 1)) posPossible[selX - 3][selY + 1] = true;
     }
-
-    i = selX, j = selY;     // resetting variables
-    i -= 3, j += 1;
-    if (checkIsPosInBounds(i, j)) 
+    
+    if (checkIsPosInBounds(selX - 3, selY - 1)) 
     {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
-    }
-
-    i = selX, j = selY;     // resetting variables
-    i -= 3, j -= 1;
-    if (checkIsPosInBounds(i, j)) 
-    {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+        if (!checkIsFriendlyOnField(selX - 3, selY - 1)) posPossible[selX - 3][selY - 1] = true;
     }
 }
 
