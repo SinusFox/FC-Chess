@@ -212,7 +212,7 @@ void FCC::Chess::checkMovesKnight()
     {
         if (!checkIsFriendlyOnField(selX - 3, selY + 1)) posPossible[selX - 3][selY + 1] = true;
     }
-    
+
     if (checkIsPosInBounds(selX - 3, selY - 1)) 
     {
         if (!checkIsFriendlyOnField(selX - 3, selY - 1)) posPossible[selX - 3][selY - 1] = true;
@@ -221,38 +221,33 @@ void FCC::Chess::checkMovesKnight()
 
 void FCC::Chess::checkMovesKing()
 {
-    // creating variables for x and y
-    uint8_t i, j;
-
     // checking possible moves
-    i = selX - 1, j = selY + 1;
-    for (; i <= selX + 1; i++)
+    // rows above and below
+    for (int8_t i = selX - 1; i <= selX + 1; i++)
     {
-        if (checkIsPosInBounds(i, j))
+        // row above
+        if (checkIsPosInBounds(i, selY + 1))
         {
-            if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+            if (!checkIsFriendlyOnField(i, selY + 1)) posPossible[i][selY + 1] = true;
+        }
+
+        // row below
+        if (checkIsPosInBounds(i, selY - 1))
+        {
+            if (!checkIsFriendlyOnField(i, selY - 1)) posPossible[i][selY - 1] = true;
         }
     }
 
-    i = selX - 1, j = selY - 1;
-    for (; i <= selX + 1; i++)
+    // left
+    if (checkIsPosInBounds(selX - 1, selY))
     {
-        if (checkIsPosInBounds(i, j))
-        {
-            if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
-        }
+        if (!checkIsFriendlyOnField(selX - 1, selY)) posPossible[selX - 1][selY] = true;
     }
 
-    i = selX - 1, j = selY;
-    if (checkIsPosInBounds(i, j))
+    // right
+    if (checkIsPosInBounds(selX + 1, selY))
     {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
-    }
-
-    i = selX + 1, j = selY;
-    if (checkIsPosInBounds(i, j))
-    {
-        if (!checkIsFriendlyOnField(i, j)) posPossible[i][j] = true;
+        if (!checkIsFriendlyOnField(selX + 1, selY)) posPossible[selX + 1][selY] = true;
     }
 }
 
@@ -261,48 +256,40 @@ void FCC::Chess::checkMovesPawn()
     // black pieces
     if (posColor[selX][selY] == FCC::PiecesColors::BLACK)
     {
-        // creating variables for x and y
-        uint8_t i, j;
-
         // checking possible moves
-        i = selX - 1, j = selY - 1;
-        for (; i <= selX + 1;)
+        // left and right for enemy pieces
+        for (uint8_t i = selX - 1; i <= selX + 1; i += 2)
         {
-            if (checkIsPosInBounds(i, j))
+            if (checkIsPosInBounds(i, selY - 1))
             {
-                if (checkIsEnemyOnField(i, j)) posPossible[i][j] = true;
+                if (checkIsEnemyOnField(i, selY - 1)) posPossible[i][selY - 1] = true;
             }
-            i += 2;
         }
 
-        i = selX, j = selY - 1;
-        if (checkIsPosInBounds(i, j))
+        // standard move to the front
+        if (checkIsPosInBounds(selX, selY - 1))
         {
-            if (checkIsPositionClear(i, j)) posPossible[i][j] = true;
+            if (checkIsPositionClear(selX, selY - 1)) posPossible[selX][selY - 1] = true;
         }
     }
 
     // white pieces
     if (posColor[selX][selY] == FCC::PiecesColors::WHITE)
     {
-        // creating variables for x and y
-        uint8_t i, j;
-
         // checking possible moves
-        i = selX - 1, j = selY + 1;
-        for (; i <= selX + 1;)
+        // left and right for enemy pieces
+        for (uint8_t i = selX - 1; i <= selX + 1; i += 2)
         {
-            if (checkIsPosInBounds(i, j))
+            if (checkIsPosInBounds(i, selY + 1))
             {
-                if (checkIsEnemyOnField(i, j)) posPossible[i][j] = true;
+                if (checkIsEnemyOnField(i, selY + 1)) posPossible[i][selY + 1] = true;
             }
-            i += 2;
         }
 
-        i = selX, j = selY + 1;
-        if (checkIsPosInBounds(i, j))
+        // standard move to the front
+        if (checkIsPosInBounds(selX, selY + 1))
         {
-            if (checkIsPositionClear(i, j)) posPossible[i][j] = true;
+            if (checkIsPositionClear(selX, selY + 1)) posPossible[selX][selY + 1] = true;
         }
     }
 }
@@ -313,14 +300,12 @@ bool FCC::Chess::checkIsPawnChangingToQueen()
     if (posColor[selX][selY] == FCC::PiecesColors::BLACK)
     {
         if (selY == 0) return true;
-        return false;
-    }
-
-    // white pieces
-    if (posColor[selX][selY] == FCC::PiecesColors::WHITE)
-    {
-        if (selY == 7) return true;
-        return false;
+    } else {
+        // white pieces
+        if (posColor[selX][selY] == FCC::PiecesColors::WHITE)
+        {
+            if (selY == 7) return true;
+        }
     }
 
     // no piece at all
