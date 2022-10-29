@@ -76,10 +76,10 @@ namespace FCC
             void input();
 
             // check funcs
-            bool checkIsEnemyOnField(uint8_t* x, uint8_t* y);
-            bool checkIsFriendlyOnField(uint8_t* x, uint8_t* y);
-            bool checkIsPositionClear(uint8_t* x, uint8_t* y);
-            bool checkIsPosInBounds(uint8_t* x, uint8_t* y);
+            bool checkIsEnemyOnField(uint8_t x, uint8_t y);
+            bool checkIsFriendlyOnField(uint8_t x, uint8_t y);
+            bool checkIsPositionClear(uint8_t x, uint8_t y);
+            bool checkIsPosInBounds(uint8_t x, uint8_t y);
             void checkAllowedMoves();
             void checkMovesHorizontal();
             void checkMovesVertical();
@@ -88,7 +88,7 @@ namespace FCC
             void checkMovesKing();
             void checkMovesPawn();
             bool checkIsPawnChangingToQueen();
-            bool checkIsPosEqualsSelPos(uint8_t* x, uint8_t* y);
+            bool checkIsPosEqualsSelPos(uint8_t x, uint8_t y);
             
             // reset funcs
             void resetFieldColors();
