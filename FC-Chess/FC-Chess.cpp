@@ -33,16 +33,17 @@ void FCC::Chess::startupGame()
 {
     // preparing board: colors
     for (int8_t i = 0; i < 8; i++) {
-        for (int j = 0; i < 2; i++) {
+        for (uint8_t j = 0; i < 2; i++) {
             posColor[i][j] = PiecesColors::BLACK;
         }
-        for (int j = 6; i < 8; i++) {
+        for (uint8_t j = 6; i < 8; i++) {
             posColor[i][j] = PiecesColors::WHITE;
         }
-        for (int j = 2; i < 7; i++) {
+        for (uint8_t j = 2; i < 7; i++) {
             posColor[i][j] = PiecesColors::NONE;
         }
     }
+
     // preparing board: pieces
     for (int8_t i = 0; i < 8; i++) {
         posPieces[1][i] = Pieces::PAWN;
@@ -60,20 +61,18 @@ void FCC::Chess::startupGame()
     }
 }
 
-bool FCC::Chess::checkIsEnemyOnField(uint8_t* x, uint8_t* y)
+bool FCC::Chess::checkIsEnemyOnField(uint8_t x, uint8_t y)
 {
-    // Check if the selected piece/field unequals the target piece/field => is true then
-    if (posColor[*x][*y] != posColor[selX][selY])
-    {
-        return true;
-    }
+    // Check if the color of the selected piece/field is the opposite of the target piece/field => is true then
+    if (posColor[x][y] == FCC::PiecesColors::BLACK && posColor[selX][selY] == FCC::PiecesColors::WHITE) return true;
+    if (posColor[x][y] == FCC::PiecesColors::WHITE && posColor[selX][selY] == FCC::PiecesColors::BLACK) return true;
     return false;
 }
 
-bool FCC::Chess::checkPosInBounds(uint8_t* x, uint8_t* y)
+bool FCC::Chess::checkIsPosInBounds(uint8_t x, uint8_t y)
 {
     // check if X and Y values are below 8. No negative values have to be checked since the var type is unsigned int
-    if (*x <= 7 && *y <= 7)
+    if (x <= 7 && y <= 7)
     {
         return true;
     }
@@ -105,30 +104,235 @@ void FCC::Chess::checkAllowedMoves()
 
 void FCC::Chess::checkMovesHorizontal()
 {
+    // checking positions to the right
     for (uint8_t i = selX; i <= 7; i++)
     {
-        if (checkIsEnemyOnField(&i, &selY)) break;
+        if (checkIsFriendlyOnField(i, selY)) break;
         posPossible[i][selY] = true;
+        if (checkIsEnemyOnField(i, selY)) break;
     }
+
+    // checking positions to the left
     for (uint8_t i = selX; i >= 0; i--)
     {
-        if (checkIsEnemyOnField(&i, &selY)) break;
+        if (checkIsFriendlyOnField(i, selY)) break;
         posPossible[i][selY] = true;
+        if (checkIsEnemyOnField(i, selY)) break;
     }
 }
 
 void FCC::Chess::checkMovesVertical()
 {
+    // checking positions above
     for (uint8_t i = selY; i <= 7; i++)
     {
-        if (checkIsEnemyOnField(&selX, &i)) break;
+        if (checkIsFriendlyOnField(selX, i)) break;
         posPossible[selX][i] = true;
+        if (checkIsEnemyOnField(selX, i)) break;
     }
+
+    // checking positions below
     for (uint8_t i = selY; i >= 0; i--)
     {
-        if (checkIsEnemyOnField(&selX, &i)) break;
+        if (checkIsFriendlyOnField(selX, i)) break;
         posPossible[selX][i] = true;
+        if (checkIsEnemyOnField(selX, i)) break;
     }
+}
+
+void FCC::Chess::checkMovesDiagonal()
+{
+    // checking positions up-right
+    for (uint8_t i = 1; checkIsPosInBounds(selX + i, selY + i); i++)
+    {
+        if (checkIsFriendlyOnField(selX + i, selY + i)) break;
+        posPossible[selX + i][selY + i] = true;
+        if (checkIsEnemyOnField(selX + i, selY + i)) break;
+    }
+
+    // checking positions below-right
+    for (uint8_t i = 1; checkIsPosInBounds(selX + i, selY - i); i++)
+    {
+        if (checkIsFriendlyOnField(selX + i, selY - i)) break;
+        posPossible[selX + i][selY - i] = true;
+        if (checkIsEnemyOnField(selX + i, selY - i)) break;
+    }
+
+    // checking positions up-left
+    for (uint8_t i = 1; checkIsPosInBounds(selX - i, selY + i); i++)
+    {
+        if (checkIsFriendlyOnField(selX - i, selY + i)) break;
+        posPossible[selX - i][selY + i] = true;
+        if (checkIsEnemyOnField(selX - i, selY + i)) break;
+    }
+
+    // checking positions below-left
+    for (uint8_t i = 1; checkIsPosInBounds(selX - i, selY - i); i++)
+    {
+        if (checkIsFriendlyOnField(selX - i, selY - i)) break;
+        posPossible[selX - i][selY - i] = true;
+        if (checkIsEnemyOnField(selX - i, selY - i)) break;
+    }
+}
+
+void FCC::Chess::checkMovesKnight()
+{
+    // checking possible moves
+    if (checkIsPosInBounds(selX + 1, selY + 3)) 
+    {
+        if (!checkIsFriendlyOnField(selX + 1, selY + 3)) posPossible[selX + 1][selY + 3] = true;
+    }
+
+    if (checkIsPosInBounds(selX + 1, selY - 3)) 
+    {
+        if (!checkIsFriendlyOnField(selX + 1, selY - 3)) posPossible[selX + 1][selY - 3] = true;
+    }
+
+    if (checkIsPosInBounds(selX - 1, selY + 3)) 
+    {
+        if (!checkIsFriendlyOnField(selX - 1, selY + 3)) posPossible[selX - 1][selY + 3] = true;
+    }
+    
+    if (checkIsPosInBounds(selX - 1, selY - 3)) 
+    {
+        if (!checkIsFriendlyOnField(selX - 1, selY - 3)) posPossible[selX - 1][selY - 3] = true;
+    }
+
+    if (checkIsPosInBounds(selX + 3, selY + 1)) 
+    {
+        if (!checkIsFriendlyOnField(selX + 3, selY + 1)) posPossible[selX + 3][selY + 1] = true;
+    }
+
+    if (checkIsPosInBounds(selX + 3, selY - 1)) 
+    {
+        if (!checkIsFriendlyOnField(selX + 3, selY - 1)) posPossible[selX + 3][selY - 1] = true;
+    }
+    
+    if (checkIsPosInBounds(selX - 3, selY + 1)) 
+    {
+        if (!checkIsFriendlyOnField(selX - 3, selY + 1)) posPossible[selX - 3][selY + 1] = true;
+    }
+
+    if (checkIsPosInBounds(selX - 3, selY - 1)) 
+    {
+        if (!checkIsFriendlyOnField(selX - 3, selY - 1)) posPossible[selX - 3][selY - 1] = true;
+    }
+}
+
+void FCC::Chess::checkMovesKing()
+{
+    // checking possible moves
+    // rows above and below
+    for (int8_t i = selX - 1; i <= selX + 1; i++)
+    {
+        // row above
+        if (checkIsPosInBounds(i, selY + 1))
+        {
+            if (!checkIsFriendlyOnField(i, selY + 1)) posPossible[i][selY + 1] = true;
+        }
+
+        // row below
+        if (checkIsPosInBounds(i, selY - 1))
+        {
+            if (!checkIsFriendlyOnField(i, selY - 1)) posPossible[i][selY - 1] = true;
+        }
+    }
+
+    // left
+    if (checkIsPosInBounds(selX - 1, selY))
+    {
+        if (!checkIsFriendlyOnField(selX - 1, selY)) posPossible[selX - 1][selY] = true;
+    }
+
+    // right
+    if (checkIsPosInBounds(selX + 1, selY))
+    {
+        if (!checkIsFriendlyOnField(selX + 1, selY)) posPossible[selX + 1][selY] = true;
+    }
+}
+
+void FCC::Chess::checkMovesPawn()
+{
+    // black pieces
+    if (posColor[selX][selY] == FCC::PiecesColors::BLACK)
+    {
+        // checking possible moves
+        // left and right for enemy pieces
+        for (uint8_t i = selX - 1; i <= selX + 1; i += 2)
+        {
+            if (checkIsPosInBounds(i, selY - 1))
+            {
+                if (checkIsEnemyOnField(i, selY - 1)) posPossible[i][selY - 1] = true;
+            }
+        }
+
+        // standard move to the front
+        if (checkIsPosInBounds(selX, selY - 1))
+        {
+            if (checkIsPositionClear(selX, selY - 1)) posPossible[selX][selY - 1] = true;
+        }
+    }
+
+    // white pieces
+    if (posColor[selX][selY] == FCC::PiecesColors::WHITE)
+    {
+        // checking possible moves
+        // left and right for enemy pieces
+        for (uint8_t i = selX - 1; i <= selX + 1; i += 2)
+        {
+            if (checkIsPosInBounds(i, selY + 1))
+            {
+                if (checkIsEnemyOnField(i, selY + 1)) posPossible[i][selY + 1] = true;
+            }
+        }
+
+        // standard move to the front
+        if (checkIsPosInBounds(selX, selY + 1))
+        {
+            if (checkIsPositionClear(selX, selY + 1)) posPossible[selX][selY + 1] = true;
+        }
+    }
+}
+
+bool FCC::Chess::checkIsPawnChangingToQueen()
+{
+    //black pieces
+    if (posColor[selX][selY] == FCC::PiecesColors::BLACK)
+    {
+        if (selY == 0) return true;
+    } else {
+        // white pieces
+        if (posColor[selX][selY] == FCC::PiecesColors::WHITE)
+        {
+            if (selY == 7) return true;
+        }
+    }
+
+    // no piece at all
+    return false;
+}
+
+void FCC::Chess::resetAllowedMovement()
+{
+    for (uint8_t i = 0; i <= 7; i++)
+    {
+        for (uint8_t j = 0; j <= 7; j++)
+        {
+            posPossible[i][j] = false;
+        }
+    }
+}
+
+bool FCC::Chess::checkIsPositionClear(uint8_t x, uint8_t y)
+{
+    if (posColor[x][y] == FCC::PiecesColors::NONE) return true;
+    return false;
+}
+
+bool FCC::Chess::checkIsFriendlyOnField(uint8_t x, uint8_t y)
+{
+    if (posColor[x][y] == posColor[selX][selY]) return true;
+    return false;
 }
 
 //void FCC::Chess::set_lang(FCC::Languages lang) {

@@ -72,10 +72,14 @@ namespace FCC
             //FCC::ChessLang chessLangObj;
             //FCC::Languages m_lang{ FCC::Languages::ENGLISH };
 
-            // funcs
+            // main funcs
             void input();
-            bool checkIsEnemyOnField(uint8_t* x, uint8_t* y);
-            bool checkPosInBounds(uint8_t* x, uint8_t* y);
+
+            // check funcs
+            bool checkIsEnemyOnField(uint8_t x, uint8_t y);
+            bool checkIsFriendlyOnField(uint8_t x, uint8_t y);
+            bool checkIsPositionClear(uint8_t x, uint8_t y);
+            bool checkIsPosInBounds(uint8_t x, uint8_t y);
             void checkAllowedMoves();
             void checkMovesHorizontal();
             void checkMovesVertical();
@@ -83,7 +87,10 @@ namespace FCC
             void checkMovesKnight();
             void checkMovesKing();
             void checkMovesPawn();
-            void checkPosEqualsSelPos(uint8_t* x, uint8_t* y);
+            bool checkIsPawnChangingToQueen();
+            bool checkIsPosEqualsSelPos(uint8_t x, uint8_t y);
+            
+            // reset funcs
             void resetFieldColors();
             void resetAllowedMovement();
     };
